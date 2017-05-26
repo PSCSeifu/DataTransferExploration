@@ -17,13 +17,13 @@ namespace EESetup.Export
         {
             List<dtoMstr> dtoList = Repo.GetData();
 
-            List<MstrBM> mstrBMList = MapToToBM(dtoList);
+            List<MstrBM> mstrBMList = MapToBM(dtoList);
 
             //CreateMstrCsv(fileName,mstrBMList);
             
         }
 
-        private List<MstrBM> MapToToBM(List<dtoMstr> dtoList)
+        private List<MstrBM> MapToBM(List<dtoMstr> dtoList)
         {
             List<MstrBM> mstrBMList = new List<MstrBM>();
             foreach (var dto in dtoList)
