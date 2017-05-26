@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0C24EC31-C137-4D41-A2D3-AAAA4DB0C4F9}</ProjectGuid>
+    <ProjectGuid>{AF10F207-0298-4C0A-B5A7-CBF94E35F6A1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>InitialEmployeeSetup</RootNamespace>
-    <AssemblyName>InitialEmployeeSetup</AssemblyName>
+    <RootNamespace>EESetup.Export</RootNamespace>
+    <AssemblyName>EESetup.Export</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,7 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MstrBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EESetup.Types\EESetup.Types.csproj">
+      <Project>{8F6F1FA5-5F1B-4BF2-A0A2-EC81F7B65385}</Project>
+      <Name>EESetup.Types</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
