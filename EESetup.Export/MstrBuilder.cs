@@ -34,7 +34,7 @@ namespace EESetup.Export
                 mstrBM.Initials = dto.Initials;
                 mstrBM.Title = new Title(dto.Title);
                 mstrBM.Department = new Department(dto.DepartmentNo, dto.DepartmentName);
-                mstrBM.BirthDate = new BirthDate(dto.BirthDate, "dd/MM/yyyy");
+                mstrBM.BirthDate = new BirthDate(dto.BirthDate);
                 mstrBM.IsUkWorker = dto.IsUkWorker;
 
                 mstrBMList.Add(mstrBM);
