@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EESetup.Types.MstrTypes
+namespace EESetup.Types.Export.ValueObject
 {
     public class BirthDate 
     {
@@ -18,6 +18,9 @@ namespace EESetup.Types.MstrTypes
             this._Value = value;
             this._StringValue = this._Value.ToString(_Format);
         }
-       
+
+        public string GetBirthDate()
+            => this._StringValue;
+               
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EESetup.Types.dto
+namespace EESetup.Types.Export.dto
 {
     public class dtoDepartment
     {

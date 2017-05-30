@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EESetup.Types.MstrTypes
+namespace EESetup.Types.Export.ValueObject
 {
     public class SalaryHistoryItem
     {

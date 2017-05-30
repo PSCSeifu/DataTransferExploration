@@ -1,4 +1,4 @@
-﻿using EESetup.Types.MstrTypes;
+﻿using EESetup.Types.Export.ValueObject;
 
 namespace EESetup.Types
 {

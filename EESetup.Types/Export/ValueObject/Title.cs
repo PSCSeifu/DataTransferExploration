@@ -1,7 +1,7 @@
 ﻿using System;
-using static EESetup.Types.Enums.Enums;
+using static EESetup.Types.Export.Enums.Enums;
 
-namespace EESetup.Types.MstrTypes
+namespace EESetup.Types.Export.ValueObject
 {
     public class Title
     {
@@ -28,7 +28,7 @@ namespace EESetup.Types.MstrTypes
 
         private string GetDescription(int id) => ((PscPayrollTitle)id).ToString();
 
-        public string GetTitle()
+        public override string ToString()
         {
             return this._Description;
         }

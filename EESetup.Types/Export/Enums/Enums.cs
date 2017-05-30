@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EESetup.Types.Enums
+namespace EESetup.Types.Export.Enums
 {
     public class Enums
     {

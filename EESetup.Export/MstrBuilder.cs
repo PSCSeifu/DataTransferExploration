@@ -1,26 +1,58 @@
 ﻿using EESetup.Types;
-using EESetup.Types.dto;
-using EESetup.Types.MstrTypes;
+using EESetup.Types.Export.dto;
+using EESetup.Types.Export.ValueObject;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static EESetup.Types.Enums.Enums;
 
 namespace EESetup.Export
 {
     public class MstrBuilder
     {
 
-        public void Export()
+        public void Export(string fileName)
         {
             List<dtoMstr> dtoList = Repo.GetData();
 
             List<MstrBM> mstrBMList = MapToBM(dtoList);
 
-            //CreateMstrCsv(fileName,mstrBMList);
+            List<MstrVM> mstrVMList = MapToVM(mstrBMList);
+
+            WriteMstrCsv(fileName, mstrVMList);
             
+        }
+
+        private void WriteMstrCsv(string fileName, List<MstrVM> mstrVMList)
+        {
+            //PscCsv.Write.CsvWriter writer = new  PscCsv.Write.CsvWriter();
+            //PscCsv.Write.CsvRow.Create(provider ...
+            //PscCsv.Write.CsvRow  headerRow = new   PscCsv.Write.CsvRow();
+            //headerRow.AddCol("Header1");
+            //headerRow.AddCol("Header2");
+            //headerRow.AddCol("Header3");
+
+            //...
+
+            //writer.Write();
+
+            throw new NotImplementedException();
+        }
+
+        private List<MstrVM> MapToVM(List<MstrBM> mstrBMList)
+        {
+            List<MstrVM> mstrVMList = new List<MstrVM>();
+            foreach (var bm in mstrBMList)
+            {
+                MstrVM vm = new MstrVM();
+                vm.EmployeeNo = bm.EmployeeNo;
+                vm.Surname = bm.Surname;
+                vm.Initials = bm.Initials;
+                vm.Title = bm.Title.ToString();
+                vm.Department = bm.Department.GetDepartment();
+                vm.BirthDate = bm.BirthDate.GetBirthDate();
+                vm.IsUkWorker = bm.IsUkWorker.ToString();
+            }
+
+            return mstrVMList;
         }
 
         private List<MstrBM> MapToBM(List<dtoMstr> dtoList)

@@ -1,4 +1,4 @@
-﻿namespace EESetup.Types.MstrTypes
+﻿namespace EESetup.Types.Export.ValueObject
 {
     public class Department
     {

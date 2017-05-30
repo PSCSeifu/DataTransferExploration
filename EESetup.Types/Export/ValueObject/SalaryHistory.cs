@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Text;
 
-namespace EESetup.Types.MstrTypes
+namespace EESetup.Types.Export.ValueObject
 {
     public class SalaryHistory
     {
@@ -18,23 +18,10 @@ namespace EESetup.Types.MstrTypes
         {
             this._Items = salaryHistoryItems;
         }
-
-        internal void GetDeduplicatedSalaryHistory()
+        
+        public string GetSalaryHistory()
         {
-            if (this._Items != null && this._Items.Count > 0)
-            {
-                this._Items.OrderByDescending(h => h.GetId());
-                foreach (var item in _Items)
-                {
-                    if (!ContainsEffectiveDate(item.GetEffectiveDate()))
-                        this._DeduplicatedItems.Add(item);
-                }
-            }
-        }
-
-        public string ToSalaryHistoryField()
-        {
-            GetDeduplicatedSalaryHistory();
+            DeduplicateSalaryHistory();
             StringBuilder sb = new StringBuilder();
             if (this._DeduplicatedItems != null && this._DeduplicatedItems.Count > 0)
             {                
@@ -46,6 +33,19 @@ namespace EESetup.Types.MstrTypes
                 }
             }
             return sb.ToString();
+        }
+
+         internal void DeduplicateSalaryHistory()
+        {
+            if (this._Items != null && this._Items.Count > 0)
+            {
+                this._Items.OrderByDescending(h => h.GetId());
+                foreach (var item in _Items)
+                {
+                    if (!ContainsEffectiveDate(item.GetEffectiveDate()))
+                        this._DeduplicatedItems.Add(item);
+                }
+            }
         }
 
         internal bool ContainsEffectiveDate(string date)
